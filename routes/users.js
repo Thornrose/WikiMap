@@ -10,6 +10,10 @@ const router  = express.Router();
 
 router.get('/', (req, res) => {
   res.render('users');
-}); 
+});
+
+router.get('/1', (req, res) => {
+  res.render('user_profile');
+});
 
 module.exports = router;
