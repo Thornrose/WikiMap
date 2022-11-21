@@ -1,7 +1,7 @@
 -- Drop and recreate Maps table
 
-DROP TABLE IF EXISTS widgets CASCADE;
-CREATE TABLE widgets (
+DROP TABLE IF EXISTS maps CASCADE;
+CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id),
   name VARCHAR(255) NOT NULL,
