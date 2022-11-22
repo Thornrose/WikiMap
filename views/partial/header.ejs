@@ -5,22 +5,22 @@
 
       <img src="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png" alt="..." height="36">
 
-    <a class="wikiname" > WikiMaps</a>
+    <a class="wikiname" > <%= mapName %></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <% if(user === undefined){ %>
+
           <a class="nav-link active" aria-current="page" href="#">Log In</a>
-          <!-- <form class='login_form' id='login_form' method ='GET' onsubmit="loginHelper()" > -->
+
           <form class='login_form' id='login_form' method ='GET'>
             <input class="usernumber" type='text' name ='usernumber' placeholder='add your user number here'></input>
             <button type='submit'  >Log in</button>
           </form>
         </li>
-        <% } else { %>
+
 
         <li class="nav-item">
           <a class="nav-link" href="#">Favourites</a>
@@ -42,7 +42,7 @@
 
         </li>
         <button type='submit' class="button" action='POST' >Logout</button>
-        <% } %>
+
       </ul>
 
     </div>

@@ -41,15 +41,18 @@ app.use(cookieSession({
 const userApiRoutes = require('./routes/users-api');
 const mapsApiRoutes = require('./routes/maps-api');
 const usersRoutes = require('./routes/users');
+const mapsRoutes = require('./routes/maps')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
+app.use('/maps', mapsRoutes);
 app.use('/users', usersRoutes);
 app.use('/users/1', usersRoutes);
 app.use('/users/login/1', usersRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page

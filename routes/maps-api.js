@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/points');
+const { getMapByID } = require('../db/queries/mapDBhelper');
 
 // router.get('/', (req, res) => {
 //   const query = `SELECT * FROM maps`;
@@ -24,6 +25,9 @@ const addPoint = require('../db/queries/points');
 //         .json({ error: err.message });
 //     });
 // });
+
+
+
 
 router.post('/:id/points', (req, res) => {
 
