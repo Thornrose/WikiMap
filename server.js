@@ -63,6 +63,12 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/list', (req, res) => {
+  const user = req.session.user_id;
+  const templateVars = { user }
+  res.render('list', templateVars)
+})
+
 
 
 app.listen(PORT, () => {

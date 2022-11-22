@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/points');
+const allMaps = require('../db/queries/maps.js');
 
 // router.get('/', (req, res) => {
 //   const query = `SELECT * FROM maps`;
@@ -25,6 +26,18 @@ const addPoint = require('../db/queries/points');
 //     });
 // });
 
+router.get('/list', (req, res) => {
+  allMaps.getMaps()
+  .then(maps => {
+    res.json({ maps });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+}
+
 router.post('/:id/points', (req, res) => {
 
   // console.log("body: ", req.body);
@@ -40,10 +53,6 @@ router.post('/:id/points', (req, res) => {
     console.error(err);
     res.send(err)
   });
-
-
-
-
 });
 
 module.exports = router;
