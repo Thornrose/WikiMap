@@ -40,9 +40,6 @@ router.get('/list', (req, res) => {
 
 router.post('/:id/points', (req, res) => {
 
-  // console.log("body: ", req.body);
-  // console.log("params: ", req.params);
-
   const mapID = req.params.id;
   console.log("map id?: ", map_id);
   addPoint({...req.body, map_id: mapID})

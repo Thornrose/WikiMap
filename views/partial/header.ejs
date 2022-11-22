@@ -1,9 +1,10 @@
 <!-- Navigation -->
+<header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 
   <div class="container">
 
-      <img src="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png" alt="..." height="36">
+      <img class= "imageicon" src="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png" alt="..." height="36">
 
     <a class="wikiname" > WikiMaps</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,15 +12,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <% if(user === undefined){ %>
-          <a class="nav-link active" aria-current="page" href="#">Log In</a>
-          <!-- <form class='login_form' id='login_form' method ='GET' onsubmit="loginHelper()" > -->
-          <form class='login_form' id='login_form' method ='GET'>
+        <li class="nav-item" id="navitem">
+
+          <% if(!user){ %>
+
+          <a class="nav-link active" id="login" aria-current="page" href="#">Log In</a>
+
+
+            <form class='login_form' id='login_form' method ='GET'>
             <input class="usernumber" type='text' name ='usernumber' placeholder='add your user number here'></input>
             <button type='submit'  >Log in</button>
           </form>
         </li>
+
         <% } else { %>
 
         <li class="nav-item">
@@ -48,3 +53,4 @@
     </div>
   </div>
 </nav>
+</header>
