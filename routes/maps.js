@@ -6,15 +6,14 @@ const { getMapByID } = require('../db/queries/mapDBhelper');
 
 router.get('/:id', (req, res) => {
   const mapID = req.params.id;
+  const userID = req.session.user_id;
   getMapByID(mapID)
   .then((data) => {
-    console.log(data);
-    console.log(data[0].name);
     const templateVars = {
-      mapName: data[0].name
+      mapName: data[0].name,
+      user: userID
     };
-    console.log(templateVars);
-    res.render('index', templateVars);
+    res.render('mapView', templateVars);
   })
 
 });
