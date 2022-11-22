@@ -3,9 +3,9 @@
 DROP TABLE IF EXISTS points CASCADE;
 CREATE TABLE points (
   id SERIAL PRIMARY KEY NOT NULL,
-  map_id INTEGER,
-  coordinates INTEGER,
+  map_id INTEGER REFERENCES maps(id) NOT NULL,
+  coordinates VARCHAR(50),
   title VARCHAR(100),
   description VARCHAR(255),
-  image TEXT
+  image_url TEXT
 );
