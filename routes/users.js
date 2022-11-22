@@ -16,4 +16,14 @@ router.get('/1', (req, res) => {
   res.render('user_profile');
 });
 
+router.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+
+  return res.redirect('/');
+ });
+
+ router.post('/login', (req, res) => {
+  console.log("body: ", req.body);
+ })
+
 module.exports = router;
