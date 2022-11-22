@@ -14,8 +14,9 @@
         <li class="nav-item">
           <% if(user === undefined){ %>
           <a class="nav-link active" aria-current="page" href="#">Log In</a>
-          <form class='login_form' id='login_form' method ='GET' onsubmit="loginHelper()" >
-            <input  type='text' name ='usernumber' placeholder='add your user number here'></input>
+          <!-- <form class='login_form' id='login_form' method ='GET' onsubmit="loginHelper()" > -->
+          <form class='login_form' id='login_form' method ='GET'>
+            <input class="usernumber" type='text' name ='usernumber' placeholder='add your user number here'></input>
             <button type='submit'  >Log in</button>
           </form>
         </li>
