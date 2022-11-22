@@ -1,0 +1,49 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+
+  <div class="container">
+
+      <img src="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png" alt="..." height="36">
+
+    <a class="wikiname" > WikiMaps</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <% if(user === undefined){ %>
+          <a class="nav-link active" aria-current="page" href="#">Log In</a>
+          <form class='login_form' id='login_form' method ='GET' onsubmit="loginHelper()" >
+            <input  type='text' name ='usernumber' placeholder='add your user number here'></input>
+            <button type='submit'  >Log in</button>
+          </form>
+        </li>
+        <% } else { %>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Favourites</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Map Options
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Create Map</a></li>
+            <li><a class="dropdown-item" href="#">Select MAp</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <button type='submit' action='POST' >Logout</button>
+
+          </ul>
+
+        </li>
+        <button type='submit' class="button" action='POST' >Logout</button>
+        <% } %>
+      </ul>
+
+    </div>
+  </div>
+</nav>
