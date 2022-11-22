@@ -1,6 +1,17 @@
-
-function loginHelper(){
-  const action_src = "http://localhost:8080/users/login/" + document.getElementsByName("usernumber")[0].value;
-    let login_form = document.getElementById('login_form');
-    login_form.action = action_src ;
-}
+$(() => {
+$("#login_form").submit(function(e){
+  e.preventDefault()
+  console.log("it worked!")
+  $.post("users/login",
+  {
+    usernumber: $('.usernumber').val()
+  },
+  function(data, status){
+    console.log(status)
+    if (status === 'success') {
+      const url = "http://localhost:8080/";
+      $(location).attr('href',url);
+    }
+  });
+});
+});
