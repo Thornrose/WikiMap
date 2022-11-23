@@ -41,7 +41,7 @@ app.use(cookieSession({
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const mapsApiRoutes = require('./routes/maps-api');
-// const pointsApiRoutes = require('./routes/points-api');
+const pointsApiRoutes = require('./routes/points-api');
 const usersRoutes = require('./routes/users');
 const mapsRoutes = require('./routes/maps');
 
@@ -50,7 +50,7 @@ const mapsRoutes = require('./routes/maps');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
-// app.use('/api/points', pointsApiRoutes);
+app.use('/api/points', pointsApiRoutes);
 app.use('/maps', mapsRoutes);
 app.use('/users', usersRoutes);
 app.use('/users/1', usersRoutes);

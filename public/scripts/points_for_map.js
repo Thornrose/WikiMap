@@ -6,6 +6,7 @@ $(document).ready(function() {
     })
     .then((res) => {
       console.log("+++++++++++++", res.points);
+      console.log("response is: ", res);
       for (let i = 0; i < res.points.length; i++) {
         const lat = res.points[i].latitude;
         const lng = res.points[i].longitude;

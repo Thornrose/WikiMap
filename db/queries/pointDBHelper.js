@@ -6,6 +6,7 @@ const getPointsByMap = function(mapID) {
     WHERE map_id = $1
     ;`, [mapID])
     .then(data => {
+      console.log("gpbm data rows:", data.rows);
       return data.rows;
     });
 }
