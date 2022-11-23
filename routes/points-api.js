@@ -26,7 +26,7 @@ const pointsController = require ('../db/controllers/pointsController')
 //     });
 // });
 
-router.post('/api/points/:id', pointsController.addPoint);
+router.post(':id', pointsController.addPoint);
 
 
 
