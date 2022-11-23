@@ -73,14 +73,7 @@ app.get('/', (req, res) => {
 
 });
 
-app.post('/api/maps', (req, res) => {
-  const { userId } = req.session;
-  if (!userID) {
-    return res
-      .status(401)
-      .send({ message: 'You need to be logged in to create a map' });
-  }
-});
+
 
 
 

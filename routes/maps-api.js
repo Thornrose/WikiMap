@@ -10,41 +10,49 @@ const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/pointsDBmodel');
 const { getMapByID } = require('../db/queries/mapDBhelper');
+const mapsController = require ('../db/controllers/mapsController')
+const mapsModel = require ('../db/queries/mapsDBmodel')
 
-// router.get('/', (req, res) => {
-//   const query = `SELECT * FROM maps`;
-//   console.log(query);
-//   db.query(query)
-//     .then(data => {
-//       const maps = data.rows;
-//       res.json({ maps });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
+// Create Point
+
+router.post('/', mapsController.addMap);
+
+// Read all points
+
+router.get('/', mapsController.getAll);
+
+
+// Read One Point
+
+router.get('/:id', mapsController.getById);
+
+// Update
+
+router.put('/:id', mapsController.update)
+
+//Delete
+
+router.delete('/:id', mapsController.remove)
+
+
+
+
+// router.post('/:id/points', (req, res) => {
+
+//   const mapID = req.params.id;
+//   console.log("map id?: ", map_id);
+//   addPoint({...req.body, map_id: mapID})
+//   .then(point => {
+//     res.send(point);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     res.send(err)
+//   });
+
+
+
+
 // });
-
-
-
-
-router.post('/:id/points', (req, res) => {
-
-  const mapID = req.params.id;
-  console.log("map id?: ", map_id);
-  addPoint({...req.body, map_id: mapID})
-  .then(point => {
-    res.send(point);
-  })
-  .catch(err => {
-    console.error(err);
-    res.send(err)
-  });
-
-
-
-
-});
 
 module.exports = router;
