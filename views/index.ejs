@@ -31,6 +31,7 @@
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
     <script src="/scripts/login.js"></script>
+    <script src="/scripts/pointjquery.js"></script>
   </head>
 
 
@@ -43,12 +44,7 @@
       crossorigin=""
     ></script>
 
-    <script src="/scripts/map.js"></script>
-    <% if(user){ %>
-    <script src="/scripts/point.js"></script>
-    <% } else { %>
-      <script src="/scripts/anonpoints.js"></script>
-    <% } %>
+
     <!-- Bootstrap JS -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
@@ -65,3 +61,11 @@
   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
   crossorigin="">
 </script>
+
+<!-- Map initialization -->
+<script src="/scripts/map.js"></script>
+<% if(user){ %>
+<script src="/scripts/point.js"></script>
+<% } else { %>
+  <script src="/scripts/anonpoints.js"></script>
+<% } %>
