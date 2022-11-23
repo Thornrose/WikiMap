@@ -10,12 +10,10 @@ const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/points');
 const { getMapByID } = require('../db/queries/mapDBHelper');
-const allMaps = require('../db/queries/maps.js');
+const { mapQueries } = require('../db/queries/maps.js');
 
-// router.get('/', (req, res) => {
-//   const query = `SELECT * FROM maps`;
-//   console.log(query);
-//   db.query(query)
+// router.get('/list', (req, res) => {
+//   mapsQueries()
 //     .then(data => {
 //       const maps = data.rows;
 //       res.json({ maps });
@@ -30,7 +28,7 @@ const allMaps = require('../db/queries/maps.js');
 router.post('/:id/points', (req, res) => {
 
   const mapID = req.params.id;
-  console.log("map id?: ", map_id);
+  console.log("map id: ", map_id);
   addPoint({...req.body, map_id: mapID})
   .then(point => {
     res.send(point);

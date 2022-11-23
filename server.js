@@ -70,15 +70,7 @@ app.get('/', (req, res) => {
     }
     const templateVars = { user };
     return res.render('index', templateVars);
-
 });
-
-app.get('/list', (req, res) => {
-  const user = req.session.user_id;
-  const templateVars = { user }
-  res.render('list', templateVars)
-})
-
 
 
 app.listen(PORT, () => {

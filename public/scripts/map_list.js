@@ -1,8 +1,14 @@
 $(() => {
+
   const loadMapLists = function() {
-    $.ajax('/maps-api', { method: 'GET' })
+    $.ajax('/list', { method: 'GET' })
       .then((mapData) => {
+        console.log('yeah?')
+        console.log("is this going through?", mapData)
         renderMapLists(mapData);
+      });
+      .catch((err) => {
+        console.log("this error message is coming from map.js: ",err.message);
       });
   };
 
@@ -10,27 +16,31 @@ $(() => {
 
   const createMapElement = function(maps) {
     // protects the app from attacks using <script> being rendered
-    const escape = function(str) {
-      let div = document.createElement("div");
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    };
+    // const escape = function(str) {
+    //   let div = document.createElement("div");
+    //   div.appendChild(document.createTextNode(str));
+    //   return div.innerHTML;
+    // };
 
     let $maps =
     `<div class="favouriteLists">
     <header>
-    <a>THIS IS MAPS!</a>
+    please render this text
+    <a>THIS IS ${maps}!</a>
     </header>
     </div>`;
+
+    return $maps;
   };
 
   const renderMapLists = function(mapLists) {
-    $('#maps-container').empty();
+    $('#list_of_all_maps').empty();
+    console.log(mapLists)
 
-    for (let maps of mapLists) {
-      const mapElement = createMapElement(maps);
-      $('#maps-container').append(mapElement)
+    // for (let maps of mapLists) {
+      const mapElement = createMapElement(mapsLists);
+      $('#list_of_all_maps').append(mapElement)
     }
-  };
+
 
 });
