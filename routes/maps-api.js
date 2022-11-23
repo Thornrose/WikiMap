@@ -10,8 +10,9 @@ const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/pointsDBmodel');
 const { getPointsByMap } = require('../db/queries/pointDBHelper');
-const mapsController = require ('../db/controllers/mapsController')
-const mapsModel = require ('../db/queries/mapsDBmodel')
+const mapsController = require ('../db/controllers/mapsController');
+const mapsModel = require ('../db/queries/mapsDBmodel');
+const { addFavMap } = require ('../db/queries/addFavourite');
 
 // Create Point
 
@@ -28,29 +29,11 @@ router.get('/:id', mapsController.getById);
 
 // Update
 
-router.put('/:id', mapsController.update)
+router.put('/:id', mapsController.update);
 
 //Delete
 
-router.delete('/:id', mapsController.remove)
-
-
-
-
-// router.post('/:id/points', (req, res) => {
-
-//   const mapID = req.params.id;
-//   console.log("map id?: ", map_id);
-//   addPoint({...req.body, map_id: mapID})
-//   .then(point => {
-//     res.send(point);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     res.send(err)
-//   });
-
-
+router.delete('/:id', mapsController.remove);
 
 
 router.get('/:id', (req, res) => {
@@ -80,5 +63,18 @@ router.post('/:id/points', (req, res) => {
   });
 
 });
+
+router.post('/favourites', (req, res) => {
+  console.log("body: ", req.body.mapID);
+  console.log("userID: ", req.session.user_id);
+  const queryVars = {
+    user_id: req.session.user_id,
+    map_id: req.body.mapID
+  }
+  addFavMap(queryVars)
+  .then((queryRes) => {
+    console.log(queryRes);
+  })
+})
 
 module.exports = router;
