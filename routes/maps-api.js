@@ -8,8 +8,8 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
-const addPoint = require('../db/queries/points');
-const { getMapByID } = require('../db/queries/mapDBHelper');
+const addPoint = require('../db/queries/pointsDBmodel');
+const { getMapByID } = require('../db/queries/mapDBhelper');
 const { mapQueries } = require('../db/queries/maps.js');
 
 // router.get('/list', (req, res) => {

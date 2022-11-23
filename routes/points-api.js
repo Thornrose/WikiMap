@@ -1,31 +1,35 @@
 /*
- * All routes for maps Data are defined here
+ * All routes for points Data are defined here
  * Since this file is loaded in server.js into api/maps,
  *   these routes are mounted onto /api/maps
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
+const { application } = require('express');
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
+const pointsController = require ('../db/controllers/pointsController')
+const pointsModel = require ('../db/queries/pointsDBmodel')
+// Create Point
 
-// router.get('/', (req, res) => {
-//   const query = `SELECT * FROM maps`;
-//   console.log(query);
-//   db.query(query)
-//     .then(data => {
-//       const maps = data.rows;
-//       res.json({ maps });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-// });
+router.post('/', pointsController.addPoint);
 
-router.post('/:id/points', (req, res) => {
-  console.log(req);
-});
+// Read all points
+
+router.get('/', pointsController.getAll);
+
+
+// Read One Point
+
+router.get('/:id', pointsController.getById);
+
+// Update
+
+router.put('/:id', pointsController.update)
+
+//Delete
+
+router.delete('/:id', pointsController.remove)
 
 module.exports = router;

@@ -21,10 +21,11 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-  <script src="/scripts/login.js"></script>
-</head>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
+    <script src="/scripts/login.js"></script>
+    <script src="/scripts/pointjquery.js"></script>
+  </head>
 
 
 <body>
@@ -33,18 +34,15 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
-    <script src="/scripts/map.js"></script>
-    <% if(user){ %>
-      <script src="/scripts/point.js"></script>
-      <% } else { %>
-        <script src="/scripts/anonpoints.js"></script>
-        <% } %>
-          <!-- Bootstrap JS -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
-            integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
 
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+      integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
 </html>
 
 <!-- Leaflet JS -->
@@ -55,3 +53,10 @@
 <!-- Map initialization -->
 <script src="/scripts/map.js"></script>
 <script src="/scripts/point.js"></script>
+
+<script src="/scripts/map.js"></script>
+<% if(user){ %>
+<script src="/scripts/point.js"></script>
+<% } else { %>
+  <script src="/scripts/anonpoints.js"></script>
+<% } %>
