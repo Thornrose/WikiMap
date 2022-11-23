@@ -44,12 +44,7 @@
       crossorigin=""
     ></script>
 
-    <script src="/scripts/map.js"></script>
-    <% if(user){ %>
-    <script src="/scripts/point.js"></script>
-    <% } else { %>
-      <script src="/scripts/anonpoints.js"></script>
-    <% } %>
+
     <!-- Bootstrap JS -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
@@ -70,3 +65,10 @@
 <!-- Map initialization -->
 <script src="/scripts/map.js"></script>
 <script src="/scripts/point.js"></script>
+
+<script src="/scripts/map.js"></script>
+<% if(user){ %>
+<script src="/scripts/point.js"></script>
+<% } else { %>
+  <script src="/scripts/anonpoints.js"></script>
+<% } %>

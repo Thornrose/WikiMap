@@ -6,13 +6,13 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
-const cors = require('cors')
+const cors = require('cors');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
 
 app.set('view engine', 'ejs');
-app.use(cors())
+app.use(cors());
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -34,7 +34,7 @@ app.use(cookieSession({
 
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}))
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -42,7 +42,7 @@ const userApiRoutes = require('./routes/users-api');
 const mapsApiRoutes = require('./routes/maps-api');
 const pointsApiRoutes = require('./routes/points-api');
 const usersRoutes = require('./routes/users');
-const mapsRoutes = require('./routes/maps')
+const mapsRoutes = require('./routes/maps');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -63,14 +63,23 @@ app.use('/users/login/1', usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-    const user = req.session.user_id;
-    if(!user){
-      const templateVars = {user: null}
-      return res.render('index', templateVars);
-    }
-    const templateVars = { user };
+  const user = req.session.user_id;
+  if (!user) {
+    const templateVars = { user: null };
     return res.render('index', templateVars);
+  }
+  const templateVars = { user };
+  return res.render('index', templateVars);
 
+});
+
+app.post('/api/maps', (req, res) => {
+  const { userId } = req.session;
+  if (!userID) {
+    return res
+      .status(401)
+      .send({ message: 'You need to be logged in to create a map' });
+  }
 });
 
 

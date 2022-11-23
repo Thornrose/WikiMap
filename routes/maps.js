@@ -2,11 +2,13 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const { getMapByID } = require('../db/queries/mapDBhelper');
-const addPoint = require('../db/queries/points')
+const { addPoint } = require('../db/queries/pointsDBmodel')
 
 
 
-router.post('/maps/:id/points', (reg, res) => {
+router.post('/maps/:id/points', (req, res) => {
+
+  addPoint()
 
 })
 
