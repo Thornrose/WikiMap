@@ -17,7 +17,7 @@ router.post('/', pointsController.addPoint);
 
 // Read all points
 
-router.get('/', pointsModel.getAll);
+router.get('/', pointsController.getAll);
 
 
 // Read One Point
