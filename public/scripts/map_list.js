@@ -6,13 +6,17 @@ $(() => {
     })
     .done((response) => {
       console.log("the response from ajax: ", response)
-      const $usersList = $('#users');
-      $('#list_of_all_maps').empty();
+      $('#list_of_favourite_maps').empty();
+      $('#list_of_contribution_maps').empty();
 
-      for(const user of response) {
-        console.log(user)
-        $(`<li class="user">`).text(user.name).appendTo($('#list_of_all_maps'));
+      for(const maps of response) {
+        $(`<li class="favourite_maps">`).text(maps.name).appendTo($('#list_of_favourite_maps'));
+        // $(`<li class="maps">`).text(maps.owner_id).appendTo($('#list_of_all_maps'));
       }
+      for(const maps of response) {
+        $(`<li class="contributed_maps">`).text(maps.name).appendTo($('#list_of_contribution_maps'));
+
+
     });
 
 
