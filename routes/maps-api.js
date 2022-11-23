@@ -9,7 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/pointsDBmodel');
-const { getMapByID } = require('../db/queries/mapDBhelper');
+const { getPointsByMap } = require('../db/queries/pointDBHelper');
 const mapsController = require ('../db/controllers/mapsController')
 const mapsModel = require ('../db/queries/mapsDBmodel')
 
@@ -53,6 +53,32 @@ router.delete('/:id', mapsController.remove)
 
 
 
-// });
+router.get('/:id', (req, res) => {
+  const mapID = req.params.id;
+  getPointsByMap(mapID)
+  .then((points) => {
+    res.json({ points });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+    });
+});
+
+router.post('/:id/points', (req, res) => {
+
+  const mapID = req.params.id;
+  console.log("map id?: ", map_id);
+  addPoint({...req.body, map_id: mapID})
+  .then(point => {
+    res.send(point);
+  })
+  .catch(err => {
+    console.error(err);
+    res.send(err)
+  });
+
+});
 
 module.exports = router;

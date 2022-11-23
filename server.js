@@ -12,12 +12,13 @@ const app = express();
 
 
 app.set('view engine', 'ejs');
-app.use(cors());
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(
   '/styles',
   sassMiddleware({
@@ -25,8 +26,8 @@ app.use(
     destination: __dirname + '/public/styles',
     isSass: false, // false => scss, true => sass
   })
-);
-app.use(express.static('public'));
+  );
+  app.use(express.static('public'));
 
 app.use(cookieSession({
   name: 'session',
@@ -40,7 +41,7 @@ app.use(cookieSession({
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const mapsApiRoutes = require('./routes/maps-api');
-const pointsApiRoutes = require('./routes/points-api');
+// const pointsApiRoutes = require('./routes/points-api');
 const usersRoutes = require('./routes/users');
 const mapsRoutes = require('./routes/maps');
 
@@ -49,7 +50,7 @@ const mapsRoutes = require('./routes/maps');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
-app.use('/api/points', pointsApiRoutes);
+// app.use('/api/points', pointsApiRoutes);
 app.use('/maps', mapsRoutes);
 app.use('/users', usersRoutes);
 app.use('/users/1', usersRoutes);
