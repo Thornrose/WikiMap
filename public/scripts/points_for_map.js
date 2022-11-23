@@ -5,6 +5,7 @@ $(document).ready(function() {
       url: `/api${mapPath}`
     })
     .done((res) => {
+
       for (let i = 0; i < res.points.length; i++) {
         const lat = res.points[i].latitude;
         const lng = res.points[i].longitude;
@@ -15,13 +16,11 @@ $(document).ready(function() {
         L.marker([lat, lng]).addTo(map).bindPopup(`
         <div class="d-flex flex-column mb-3">
           <img src="${imageURL}" class="img-thumbnail">
+          <span class="popup-text border border-5 border-success">${title}</span>
+          <span class="popup-text border border-2 border-dark">${description}</span>
           <div class="container">
-            <span class="border border-5 border-success">${title}</span>
-            <span class="border border-2 border-dark">${description}</span>
-          </div>
-          <div class="container">
-          <button type="button" class="btn btn-success">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-success">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
           </div>
         </div>`);
       }

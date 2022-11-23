@@ -1,4 +1,4 @@
-var popup = L.popup();
+const popup = L.popup();
 
 function onMapClick(e) {
     popup
