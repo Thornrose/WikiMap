@@ -9,7 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/points');
-const { getMapByID } = require('../db/queries/mapDBhelper');
+const { getPointsByMap } = require('../db/queries/pointDBhelper');
 
 // router.get('/', (req, res) => {
 //   const query = `SELECT * FROM maps`;
@@ -26,6 +26,19 @@ const { getMapByID } = require('../db/queries/mapDBhelper');
 //     });
 // });
 
+router.get('/:id', (req, res) => {
+  const mapID = req.params.id;
+  getPointsByMap(mapID)
+  .then((points) => {
+    console.log(points);
+    res.json({ points });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+    });
+});
 
 
 
