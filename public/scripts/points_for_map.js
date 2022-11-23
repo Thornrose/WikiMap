@@ -4,7 +4,7 @@ $(document).ready(function() {
       method: 'GET',
       url: `/api${mapPath}`
     })
-    .done((res) => {
+    .then((res) => {
       console.log("+++++++++++++", res.points);
       for (let i = 0; i < res.points.length; i++) {
         const lat = res.points[i].latitude;
@@ -13,7 +13,8 @@ $(document).ready(function() {
         const description = res.points[i].description;
         const imageURL = res.points[i].image_url;
 
-        L.marker([lat, lng]).addTo(map).bindPopup(`
+        const pointMarker = L.marker([lat, lng]).addTo(map);
+        pointMarker.bindPopup(`
         <div class="d-flex flex-column mb-3">
           <img src="${imageURL}" class="img-thumbnail">
           <span class="popup-text border border-5 border-success">${title}</span>
@@ -22,7 +23,8 @@ $(document).ready(function() {
             <button type="button" class="btn btn-success">Edit</button>
             <button type="button" class="btn btn-danger">Delete</button>
           </div>
-        </div>`);
+        </div>
+        `);
       }
     });
   });

@@ -2,7 +2,7 @@ $(() => {
   const popup = L.popup();
 
   function onMapClick(e) {
-    console.log("+++++++++++ map was clicked");
+    console.log("+++++++++++ map was clicked 1");
     popup
 
       .setLatLng(e.latlng)
