@@ -11,26 +11,10 @@ const db = require('../db/connection');
 const addPoint = require('../db/queries/points');
 const { getPointsByMap } = require('../db/queries/pointDBhelper');
 
-// router.get('/', (req, res) => {
-//   const query = `SELECT * FROM maps`;
-//   console.log(query);
-//   db.query(query)
-//     .then(data => {
-//       const maps = data.rows;
-//       res.json({ maps });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-// });
-
 router.get('/:id', (req, res) => {
   const mapID = req.params.id;
   getPointsByMap(mapID)
   .then((points) => {
-    console.log(points);
     res.json({ points });
   })
   .catch(err => {
@@ -39,8 +23,6 @@ router.get('/:id', (req, res) => {
       .json({ error: err.message });
     });
 });
-
-
 
 router.post('/:id/points', (req, res) => {
 
@@ -54,9 +36,6 @@ router.post('/:id/points', (req, res) => {
     console.error(err);
     res.send(err)
   });
-
-
-
 
 });
 
