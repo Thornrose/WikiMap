@@ -5,7 +5,7 @@ $(document).ready(function() {
       url: `/api${mapPath}`
     })
     .done((res) => {
-
+      console.log("+++++++++++++", res.points);
       for (let i = 0; i < res.points.length; i++) {
         const lat = res.points[i].latitude;
         const lng = res.points[i].longitude;
