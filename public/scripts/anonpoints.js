@@ -4,7 +4,7 @@ function onMapClick(e) {
   console.log("+++++++++++ map was clicked 2-anon");
     popup
         .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
+        .setContent("Login to add points to this map!")
         .openOn(map);
 }
 
