@@ -1,6 +1,7 @@
 const express = require('express');
 
 const pointsRoutes = require('./points-api');
+const mapsRoutes = require('./points-api')
 
 const router = express.Router();
 
@@ -12,6 +13,7 @@ const router = express.Router();
 
 // CRUD REST API FRUITS ROUTES
 router.use('/api/points', pointsRoutes);
+router.use('/api/maps', mapsRoutes);
 
 // Catch all route
 router.use((req, res) => {

@@ -1,5 +1,5 @@
 const  pointsDBmodel  = require('../queries/pointsDBmodel');
-console.log(pointsDBmodel)
+
 const addPoint = (req, res) => {
   const { userId } = req.session;
   if (!userId) {

@@ -9,21 +9,62 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const addPoint = require('../db/queries/pointsDBmodel');
-const { getMapByID } = require('../db/queries/mapDBhelper');
-const { mapQueries } = require('../db/queries/maps.js');
+const { getPointsByMap } = require('../db/queries/pointDBHelper');
+const mapsController = require ('../db/controllers/mapsController')
+const mapsModel = require ('../db/queries/mapsDBmodel')
 
-// router.get('/list', (req, res) => {
-//   mapsQueries()
-//     .then(data => {
-//       const maps = data.rows;
-//       res.json({ maps });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-// });
+// Create Point
+
+router.post('/', mapsController.addMap);
+
+// Read all points
+
+router.get('/', mapsController.getAll);
+
+
+// Read One Point
+
+router.get('/:id', mapsController.getById);
+
+// Update
+
+router.put('/:id', mapsController.update)
+
+//Delete
+
+router.delete('/:id', mapsController.remove)
+
+
+
+
+// router.post('/:id/points', (req, res) => {
+
+//   const mapID = req.params.id;
+//   console.log("map id?: ", map_id);
+//   addPoint({...req.body, map_id: mapID})
+//   .then(point => {
+//     res.send(point);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     res.send(err)
+//   });
+
+
+
+
+router.get('/:id', (req, res) => {
+  const mapID = req.params.id;
+  getPointsByMap(mapID)
+  .then((points) => {
+    res.json({ points });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+    });
+});
 
 router.post('/:id/points', (req, res) => {
 
@@ -37,6 +78,7 @@ router.post('/:id/points', (req, res) => {
     console.error(err);
     res.send(err)
   });
+
 });
 
 module.exports = router;
