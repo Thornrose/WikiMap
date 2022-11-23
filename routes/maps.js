@@ -14,8 +14,8 @@ router.post('/maps/:id/points', (req, res) => {
 });
 
 router.get('/list', (req, res) => {
-  const mapID = req.query;
   const userID = req.session.user_id;
+  console.log(userID)
   if (!userID) {
     return res.redirect('/');
   }
@@ -25,18 +25,10 @@ router.get('/list', (req, res) => {
   return res.render('list', templateVars);
 });
 
-router.get('/list-api', (req, res) => {
+router.get('/favourite-list', (req, res) => {
   const mapID = req.query;
   const userID = req.session.user_id;
-  contributionMapQueries()
-    .then((data) => {
-      return res.json(data);
-    })
-    .catch((err) => {
-      console.log("this error message is coming from map.js: ", err.message);
-    });
-
-    favouriteMapQueries()
+    favouriteMapQueries(userID)
     .then((data) => {
       return res.json(data);
     })
@@ -45,6 +37,17 @@ router.get('/list-api', (req, res) => {
     });
 });
 
+router.get('/contributions-list', (req, res) => {
+  const mapID = req.query;
+  const userID = req.session.user_id;
+  contributionMapQueries(userID)
+    .then((data) => {
+      return res.json(data);
+    })
+    .catch((err) => {
+      console.log("this error message is coming from map.js: ", err.message);
+    });
+});
 
 router.get('/:id', (req, res) => {
   const mapID = req.params.id;
