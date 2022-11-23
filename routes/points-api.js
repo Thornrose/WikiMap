@@ -10,41 +10,26 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const pointsController = require ('../db/controllers/pointsController')
+const pointsModel = require ('../db/queries/pointsDBmodel')
+// Create Point
 
-// router.get('/', (req, res) => {
-//   const query = `SELECT * FROM maps`;
-//   console.log(query);
-//   db.query(query)
-//     .then(data => {
-//       const maps = data.rows;
-//       res.json({ maps });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-// });
-
-router.post(':id', pointsController.addPoint);
-
-
+router.post('/', pointsController.addPoint);
 
 // Read all points
 
-router.get('/api/points', pointsController.getAll);
+router.get('/', pointsController.getAll);
 
 
 // Read One Point
 
-router.get('/api/points/:id', pointsController.getById);
+router.get('/:id', pointsController.getById);
 
 // Update
 
-router.put('/api/points/:id', pointsController.update)
+router.put('/:id', pointsController.update)
 
 //Delete
 
-router.delete('/api/points/:id', pointsController.remove)
+router.delete('/:id', pointsController.remove)
 
 module.exports = router;
