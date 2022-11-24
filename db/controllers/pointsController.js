@@ -18,9 +18,10 @@ const addPoint = (req, res) => {
   }
 
 let currentMapId = req.headers.referer.charAt(req.headers.referer.length -1)
-
+let currentUser = req.session.user_id
 let point = {
-  map_id: currentMapId,
+   map_id: currentMapId,
+   user_id: currentUser,
    latitude: lat,
    longitude:long,
    title: point_title,
