@@ -27,7 +27,7 @@ router.post('/login', (req, res) => {
   console.log("body: ", req.body);
 
   req.session.user_id = req.body.usernumber;
-  console.log(req.session.user_id);
+  // req.cookies.user_id = req.body.usernumber;
   return res.redirect('/');
 });
 

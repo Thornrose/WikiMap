@@ -10,7 +10,7 @@ $(() => {
     function(data, status){
       console.log(status)
       if (status === 'success') {
-        const url = "http://localhost:8080/";
+        const url = "http://localhost:8080/maps/1";
         $(location).attr('href',url);
       }
     });

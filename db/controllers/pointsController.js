@@ -1,21 +1,32 @@
 const  pointsDBmodel  = require('../queries/pointsDBmodel');
 
 const addPoint = (req, res) => {
-  const { userId } = req.session;
-  if (!userId) {
+
+  const { user_id } = req.session;
+  if (!user_id) {
     return res
       .status(401)
       .send({ message: 'You need to be logged in to create a point' });
   }
 
-  const { title, description, imageURL, latitude, longitude } = req.body;
-  if (!title || !description || !imageURL || !latitude || !longitude ) {
+  const { point_title, point_description, point_image_url, lat, long } = req.body;
+  console.log(req.body)
+  if (!point_title || !point_description || !point_image_url || !lat || !long ) {
     return res
     .status(400)
     .send({ message: 'Please make sure your form is filled out'})
   }
 
-  pointsDBmodel.addPoint(title, description, imageURL, latitude, longitude, pointID)
+let currentMapId = req.headers.referer.charAt(req.headers.referer.length -1)
+
+let point = {
+  map_id: currentMapId,
+   latitude: lat,
+   longitude:long,
+   title: point_title,
+   description: point_description,
+   image_url: point_image_url}
+  pointsDBmodel.addPoint(point)
     .then(point => {
       res.status(201).send({ message: 'Created!', point });
     })

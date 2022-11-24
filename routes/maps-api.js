@@ -24,7 +24,7 @@ router.get('/', mapsController.getAll);
 
 // Read One Point
 
-router.get('/:id', mapsController.getById);
+// router.get('/:id', mapsController.getById);
 
 // Update
 
