@@ -8,16 +8,15 @@ const addPoint = function(point) {
     .then((result) => {
       return result.rows[0];
     })
-    .then((result)=>{
-      console.log("result",result)
-    }
-    )
+
+
+
 
 
     .catch((err) => {
       console.log(err.message);
     });
-};
+  }
 
 
 const getAll = () => {
