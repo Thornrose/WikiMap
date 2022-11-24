@@ -1,8 +1,10 @@
 $(document).ready(function() {
   const mapPath = document.location.pathname;
-    $.ajax({
+  console.log("Mappath",mapPath)
+  $.ajax({
       method: 'GET',
       url: `/api${mapPath}`
+
     })
     .then((res) => {
       for (let i = 0; i < res.points.length; i++) {
@@ -19,11 +21,14 @@ $(document).ready(function() {
           <span class="popup-text border border-5 border-success">${title}</span>
           <span class="popup-text border border-2 border-dark">${description}</span>
           <div class="container">
+
             <button type="button" class="btn btn-success">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+
+            <button type="button" action= '/api/points' method='delete' class="btn btn-danger">Delete</button>
+
           </div>
         </div>
-        `);
+        `).openPopup() ;
       }
     });
   });

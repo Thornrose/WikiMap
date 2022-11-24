@@ -51,6 +51,7 @@ router.get('/contributions-list', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const mapID = req.params.id;
+  // if(typeof mapID === 'number'){
   const userID = req.session.user_id;
   getMapByID(mapID)
     .then((data) => {
@@ -59,6 +60,7 @@ router.get('/:id', (req, res) => {
       };
       res.render('mapView', templateVars);
     });
+  // }
 });
 
 module.exports = router;
