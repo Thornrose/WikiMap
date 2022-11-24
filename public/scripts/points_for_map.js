@@ -22,7 +22,7 @@ $(document).ready(function() {
           <span class="popup-text border border-2 border-dark">${description}</span>
           <div class="container">
 
-            <button type="button" class="btn btn-success">Edit</button>
+            <button type="button" class="btn btn-success edit-button">Edit</button>
 
             <button type="button" action= '/api/points' method='delete' class="btn btn-danger">Delete</button>
 
