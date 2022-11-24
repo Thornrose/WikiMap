@@ -1,0 +1,23 @@
+.list_of_maps {
+  padding-top: 3em;
+
+  /*
+   *flex box
+   */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.favourite_maps {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.contributed_maps {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
