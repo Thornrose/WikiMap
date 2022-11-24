@@ -1,13 +1,11 @@
 const db = require('../connection');
 
 const addMap = function(userID) {
-  console.log(typeof Number(userID));
   return db
     .query(`INSERT INTO maps (owner_id)
     VALUES ($1)
     RETURNING *;`, [Number(userID)])
     .then((result) => {
-      console.log(result.rows[0]);
       return result.rows[0];
     })
     .catch((err) => {
