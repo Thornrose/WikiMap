@@ -27,10 +27,6 @@ router.get('/list', (req, res) => {
 
 router.get('/all', (req, res) => {
   const userID = req.session.user_id;
-  console.log(userID);
-  if (!userID) {
-    return res.redirect('/');
-  }
   const templateVars = {
     user: userID
   };
@@ -64,7 +60,6 @@ router.get('/contributions-list', (req, res) => {
 router.get('/all-list', (req, res) => {
   getAll()
     .then((data) => {
-      console.log(data)
       return res.json(data);
     })
     .catch((err) => {

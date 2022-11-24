@@ -1,40 +1,49 @@
 <!-- Navigation -->
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 
-  <div class="container">
+    <div class="container">
 
-      <img class= "imageicon" src="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png" alt="..." height="36">
+      <img class="imageicon" src="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png" alt="..."
+        height="36">
 
-    <a class="wikiname" > wikiMaps </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item" id="navitem">
+      <a class="wikiname"> wikiMaps </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" id="navitem">
+            <% if(!user){ %>
+              <div class="end-side-nav">
+                <div class="login-box">
+                  <a class="nav-link active" id="login" aria-current="page">Log In</a>
+                  <form action='/users/login' class='login_form' id='login_form' method='POST'>
+                    <input class="usernumber" type='text' name='usernumber'
+                      placeholder='add your user number here'></input>
+                    <button type='submit'>Log in</button>
+                  </form>
+                </div>
+                <div class="all-maps-link">
+                  <a class="maps-link">Available Maps</a>
+                </div>
+              </div>
+          </li>
 
-          <% if(!user){ %>
+          <% } else { %>
 
-          <a class="nav-link active" id="login" aria-current="page" href="#">Log In</a>
-
-
-            <form action ='/users/login' class='login_form' id='login_form' method ='POST'>
-            <input class="usernumber" type='text' name ='usernumber' placeholder='add your user number here'></input>
-            <button type='submit'  >Log in</button>
-          </form>
-        </li>
-
-        <% } else { %>
-
-        <li class="nav-item">
-          <div class="fav-link">
-            <a class="nav-link">Favourites</a>
-          </div>
-          <a class="nav-link create-map" action="/api/maps" method="POST">Create New Map</a>
-        <!-- </li> -->
-        <li class="nav-item dropdown">
-         <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item">
+              <div class="all-maps-link">
+                <a class="maps-link">Available Maps</a>
+              </div>
+              <div class="fav-link">
+                <a class="nav-link">Favourites</a>
+              </div>
+              <a class="nav-link create-map" action="/api/maps" method="POST">Create New Map</a>
+              <!-- </li> -->
+            <li class="nav-item dropdown">
+              <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Map Options
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -46,16 +55,16 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
             <button type='submit' action='POST' >Logout</button> -->
 
-          </ul>
+        </ul>
 
         </li>
         <!-- <button type='submit' class="button" action='POST' >Logout</button> -->
         <% } %>
-      </ul>
+          </ul>
 
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </header>
 
 <script src="/scripts/createmap.js"></script>

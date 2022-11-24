@@ -4,4 +4,8 @@ $(() => {
   $('.fav-link').on('click', function() {
     window.location.href='/maps/list';
   });
+
+  $('.all-maps-link').on('click', function() {
+    window.location.href='/maps/all';
+  });
 });
