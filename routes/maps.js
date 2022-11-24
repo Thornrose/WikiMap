@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
-const { getMapByID } = require('../db/queries/mapDBhelper');
+const { getMapByID, getContributionMaps, getFavouriteMaps } = require('../db/queries/mapDBhelper');
 const { addPoint } = require('../db/queries/pointsDBmodel');
-const { contributionMapQueries, favouriteMapQueries } = require('../db/queries/maps.js');
-
 
 
 router.post('/maps/:id/points', (req, res) => {
@@ -15,7 +13,7 @@ router.post('/maps/:id/points', (req, res) => {
 
 router.get('/list', (req, res) => {
   const userID = req.session.user_id;
-  console.log(userID)
+  console.log(userID);
   if (!userID) {
     return res.redirect('/');
   }
@@ -28,7 +26,7 @@ router.get('/list', (req, res) => {
 router.get('/favourite-list', (req, res) => {
   const mapID = req.query;
   const userID = req.session.user_id;
-    favouriteMapQueries(userID)
+  getFavouriteMaps(userID)
     .then((data) => {
       return res.json(data);
     })
@@ -40,7 +38,7 @@ router.get('/favourite-list', (req, res) => {
 router.get('/contributions-list', (req, res) => {
   const mapID = req.query;
   const userID = req.session.user_id;
-  contributionMapQueries(userID)
+  getContributionMaps(userID)
     .then((data) => {
       return res.json(data);
     })
