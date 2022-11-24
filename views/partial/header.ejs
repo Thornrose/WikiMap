@@ -19,7 +19,7 @@
           <a class="nav-link active" id="login" aria-current="page" href="#">Log In</a>
 
 
-            <form class='login_form' id='login_form' method ='GET'>
+            <form action ='/users/login' class='login_form' id='login_form' method ='POST'>
             <input class="usernumber" type='text' name ='usernumber' placeholder='add your user number here'></input>
             <button type='submit'  >Log in</button>
           </form>
@@ -28,20 +28,23 @@
         <% } else { %>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Favourites</a>
-        </li>
+          <div class="fav-link">
+            <a class="nav-link">Favourites</a>
+          </div>
+          <a class="nav-link" href="#">Create Map</a>
+        <!-- </li> -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Map Options
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Create Map</a></li>
             <li><a class="dropdown-item" href="#">Select MAp</a></li>
-            <li>
+             <li>
               <hr class="dropdown-divider">
             </li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <!-- <button type='submit' action='POST' >Logout</button> -->
+            <button type='submit' action='POST' >Logout</button> -->
 
           </ul>
 
