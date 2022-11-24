@@ -4,8 +4,5 @@ $(document).ready(function() {
       method: 'POST',
       url: '/api/maps/',
     })
-    .then ((data) =>{
-      window.location.href='/maps/3';
-    })
   });
 });

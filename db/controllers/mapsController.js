@@ -10,7 +10,8 @@ const addMap = (req, res) => {
 
   mapsDBmodel.addMap(userId)
     .then(map => {
-      res.status(201).send({ message: 'Created!', map });
+      console.log("result after map created: ", map);
+      return res.redirect(`/maps/${map.id}`);
     })
     .catch(error => {
       console.log(error.message);

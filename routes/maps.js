@@ -55,7 +55,6 @@ router.get('/:id', (req, res) => {
   getMapByID(mapID)
     .then((data) => {
       const templateVars = {
-        mapName: data[0].name,
         user: userID
       };
       res.render('mapView', templateVars);

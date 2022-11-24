@@ -27,8 +27,9 @@ let point = {
    description: point_description,
    image_url: point_image_url}
   pointsDBmodel.addPoint(point)
-    .then(point => {
-      res.status(201).send({ message: 'Created!', point });
+    .then((point) => {
+      console.log(point);
+      res.redirect('back');
     })
     .catch(error => {
       console.log(error.message);
