@@ -1,21 +1,14 @@
 const  mapsDBmodel  = require('../queries/mapsDBmodel');
 
 const addMap = (req, res) => {
-  const { userId } = req.session;
+  const userId  = req.session.user_id;
   if (!userId) {
     return res
       .status(401)
       .send({ message: 'You need to be logged in to create a map' });
   }
 
-  const { owner_id , name  } = req.body;
-  if (!owner_id|| !name ) {
-    return res
-    .status(400)
-    .send({ message: 'Please make sure your form is filled out'})
-  }
-
-  mapsDBmodel.addMap(owner_id , name , mapID)
+  mapsDBmodel.addMap(userId)
     .then(map => {
       res.status(201).send({ message: 'Created!', map });
     })
