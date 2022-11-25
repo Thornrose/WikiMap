@@ -60,7 +60,6 @@ router.post("/favourites", (req, res) => {
     map_id: req.body.mapID,
   };
   addFavMap(queryVars).then((queryRes) => {
-    console.log(queryRes);
   });
 });
 
