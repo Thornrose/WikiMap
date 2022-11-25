@@ -77,12 +77,26 @@ const getById = (req, res) => {
 };
 
 const update = (req, res) => {
-  const { userId } = req.session;
+  const userId = req.session.user_id;
+  console.log("triggered in pointscontroller");
+  console.log(userId);
   if (!userId) {
+    console.log("are we making it into the if statement?");
     return res.status(401).send({ message: 'User is not logged in' });
   }
 
-  const { title, description, imageUrl, latitude , longitude } = req.body;
+  // const { title, description, imageUrl, latitude , longitude } = req.body;
+  console.log("request body in update handler: ", req.body);
+  console.log("title but for real?", req.body.point_title);
+  const title = req.body.point_title;
+  const description = req.body.point_description;
+  const imageUrl = req.body.point_image_url;
+  const latitude = req.body.point_latitude.slice(1);
+  const longitude = req.body.point_longitude;
+  const pointID = req.body.point_point_id;
+
+
+
   if (!title|| !description|| !imageUrl || !latitude || !longitude) {
     return res
       .status(400)

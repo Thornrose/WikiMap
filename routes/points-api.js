@@ -26,7 +26,7 @@ router.get('/:id', pointsController.getById);
 
 // Update
 
-router.put('/:id', pointsController.update)
+router.put('/:id', pointsController.update);
 
 //Delete
 

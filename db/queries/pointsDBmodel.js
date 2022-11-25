@@ -34,9 +34,10 @@ const getById = id => {
 };
 
 const update =  ( title, description, imageURL, latitude, longitude, pointID) => {
+  console.log("made it to the db query");
   return db
     .query(
-      'UPDATE points SET title = $1, description = $2, imageURL = $3 , latitude = $4 , longitude =$5  WHERE pointid = $6 RETURNING *',
+      'UPDATE points SET title = $1, description = $2, image_url = $3 , latitude = $4 , longitude =$5  WHERE points.id = $6 RETURNING *',
       [ title, description, imageURL, latitude, longitude , pointID]
     )
     .then(data => data.rows[0])
