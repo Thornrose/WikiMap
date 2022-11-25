@@ -1,14 +1,17 @@
-const db = require('../connection');
+//
+const db = require("../connection");
 
-const getMapByID = function(id) {
+const getMapByID = function (id) {
   return db
-    .query(`SELECT * FROM maps
+    .query(
+      `SELECT * FROM maps
     WHERE id = $1
-    ;`, [id])
-    .then(data => {
+    ;`,
+      [id]
+    )
+    .then((data) => {
       return data.rows;
     });
-}
-
+};
 
 module.exports = { getMapByID };
