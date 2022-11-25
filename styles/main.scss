@@ -61,14 +61,10 @@ body {
 }
 
 #navitem{
-
   padding: 10px 0;
   display: flex;
-  flex-direction: row;
-
-
-
-
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .end-side-nav {

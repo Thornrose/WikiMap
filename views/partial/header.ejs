@@ -16,6 +16,9 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item" id="navitem">
             <% if(!user){ %>
+              <div class="all-maps-link">
+                <a class="nav-link">Available Maps</a>
+              </div>
               <div class="end-side-nav">
                 <div class="login-box">
                   <a class="nav-link active" id="login" aria-current="page">Log In</a>
@@ -24,9 +27,6 @@
                       placeholder='add your user number here'></input>
                     <button type='submit'>Log in</button>
                   </form>
-                </div>
-                <div class="all-maps-link">
-                  <a class="nav-link">Available Maps</a>
                 </div>
               </div>
           </li>
