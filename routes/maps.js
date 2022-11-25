@@ -5,7 +5,7 @@ const { getMapByID } = require("../db/queries/mapDBhelper");
 const { getAll } = require("../db/queries/mapsDBmodel");
 const { addPoint } = require("../db/queries/pointsDBmodel");
 const {
-  getFavouriteMaps,
+  getContributionMaps,
   getFavouriteMaps,
 } = require("../db/queries/maps.js");
 

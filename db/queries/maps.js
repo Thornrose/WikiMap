@@ -1,7 +1,7 @@
 // Queries for listing favourites and contributed to maps
 const db = require("../connection");
 
-const getFavouriteMaps = function (contribution) {
+const getContributionMaps = function (contribution) {
   return db
     .query(
       `SELECT maps.id AS map_name, user_id AS userID, users.name AS user_name
@@ -39,4 +39,4 @@ const getFavouriteMaps = function (favourite) {
     });
 };
 
-module.exports = { getFavouriteMaps, getFavouriteMaps };
+module.exports = { getContributionMaps, getFavouriteMaps };

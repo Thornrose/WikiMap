@@ -14,4 +14,4 @@ const getMapByID = function (id) {
     });
 };
 
-module.exports = { getMapByID, getContributionMaps, getFavouriteMaps };
+module.exports = { getMapByID };
