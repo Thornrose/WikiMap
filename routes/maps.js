@@ -1,28 +1,27 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require('../db/connection');
-const { getMapByID, getContributionMaps, getFavouriteMaps } = require('../db/queries/mapDBhelper');
-const { addPoint } = require('../db/queries/pointsDBmodel');
-const { getAll } = require('../db/queries/mapsDBmodel');
+const db = require("../db/connection");
+const { getMapByID } = require("../db/queries/mapDBhelper");
+const { addPoint } = require("../db/queries/pointsDBmodel");
+const {
+  contributionMapQueries,
+  favouriteMapQueries,
+} = require("../db/queries/maps.js");
 
-
-
-router.post('/maps/:id/points', (req, res) => {
-
+router.post("/maps/:id/points", (req, res) => {
   addPoint();
-
 });
 
-router.get('/list', (req, res) => {
+router.get("/list", (req, res) => {
   const userID = req.session.user_id;
-  console.log(userID);
+
   if (!userID) {
-    return res.redirect('/');
+    return res.redirect("/");
   }
   const templateVars = {
-    user: userID
+    user: userID,
   };
-  return res.render('list', templateVars);
+  return res.render("list", templateVars);
 });
 
 router.get('/all', (req, res) => {
@@ -33,7 +32,7 @@ router.get('/all', (req, res) => {
   return res.render('all', templateVars);
 });
 
-router.get('/favourite-list', (req, res) => {
+router.get("/favourite-list", (req, res) => {
   const mapID = req.query;
   const userID = req.session.user_id;
   getFavouriteMaps(userID)
@@ -45,7 +44,7 @@ router.get('/favourite-list', (req, res) => {
     });
 });
 
-router.get('/contributions-list', (req, res) => {
+router.get("/contributions-list", (req, res) => {
   const mapID = req.query;
   const userID = req.session.user_id;
   getContributionMaps(userID)
@@ -67,18 +66,15 @@ router.get('/all-list', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   const mapID = req.params.id;
-  // if(typeof mapID === 'number'){
   const userID = req.session.user_id;
-  getMapByID(mapID)
-    .then((data) => {
-      const templateVars = {
-        user: userID
-      };
-      res.render('mapView', templateVars);
-    });
-  // }
+  getMapByID(mapID).then((data) => {
+    const templateVars = {
+      user: userID,
+    };
+    res.render("mapView", templateVars);
+  });
 });
 
 module.exports = router;

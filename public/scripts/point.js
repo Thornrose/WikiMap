@@ -1,3 +1,4 @@
+// Create point pop up script
 $(() => {
   const popup = L.popup();
 
