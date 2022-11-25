@@ -48,7 +48,7 @@
     <%- include('partial/header.ejs'); %>
     <div id="mapLabel">
       <% if(user){ %>
-      <button id="add-favourite" type="button" class="btn btn-warning">
+      <button  onclick="favouriteMap()" id="add-favourite" type="button" class="btn btn-warning">
         Add This Map to Favourites
       </button>
       <% } else { %> <% } %>
@@ -90,4 +90,5 @@
 <script src="/scripts/points_for_map.js"></script>
 
 <script src="/scripts/ostLayer.js"></script>
-
+<script> function favouriteMap() {
+  alert("Added Map to Favourites");}</script>
