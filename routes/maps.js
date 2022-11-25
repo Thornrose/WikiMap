@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/connection");
 const { getMapByID } = require("../db/queries/mapDBhelper");
+const { getAll } = require("../db/queries/mapsDBmodel");
 const { addPoint } = require("../db/queries/pointsDBmodel");
 const {
-  contributionMapQueries,
-  favouriteMapQueries,
+  getFavouriteMaps,
+  getFavouriteMaps,
 } = require("../db/queries/maps.js");
 
 router.post("/maps/:id/points", (req, res) => {
