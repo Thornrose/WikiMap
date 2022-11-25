@@ -5,30 +5,28 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const { request } = require('express');
-const express = require('express');
+const { request } = require("express");
+const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('users');
+router.get("/", (req, res) => {
+  res.render("users");
 });
 
-router.get('/1', (req, res) => {
-  res.render('user_profile');
+router.get("/1", (req, res) => {
+  res.render("user_profile");
 });
 
-router.get('/login/:id', (req, res) => {
+router.get("/login/:id", (req, res) => {
   req.session.user_id = req.params.id;
 
-  return res.redirect('/');
+  return res.redirect("/");
 });
 
-router.post('/login', (req, res) => {
-  console.log("body: ", req.body);
-
+router.post("/login", (req, res) => {
   req.session.user_id = req.body.usernumber;
-  console.log(req.session.user_id);
-  return res.redirect('/');
+
+  return res.redirect("/");
 });
 
 module.exports = router;

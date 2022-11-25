@@ -1,7 +1,11 @@
 // Client facing scripts here
 $(() => {
-  // redirect button to favourted and contirubted maps
-  $('.fav-link').on('click', function() {
-    window.location.href='/maps/list';
+  // redirect button to favourited and contributed maps
+  $(".fav-link").on("click", function () {
+    window.location.href = "/maps/list";
+  });
+
+  $('.all-maps-link').on('click', function() {
+    window.location.href='/maps/all';
   });
 });

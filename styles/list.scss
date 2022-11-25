@@ -18,6 +18,12 @@
 .contributed_maps {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: centre;
 }
 
+#list_of_contribution_maps {
+  margin-left: 50%;
+}
+#list_of_favourite_maps {
+  margin-left: 30%;
+}

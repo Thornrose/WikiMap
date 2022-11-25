@@ -2,10 +2,19 @@
 <html lang="en">
   <head>
     <title>MapView</title>
-
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://raw.githubusercontent.com/WilWadman/tweet/master/docs/wikimap.png"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -35,15 +44,14 @@
     <script src="/scripts/addFav.js"></script>
   </head>
 
-
   <body>
     <%- include('partial/header.ejs'); %>
     <div id="mapLabel">
       <% if(user){ %>
-        <button id="add-favourite" type="button" class="btn btn-warning">Add This Map to Favourites</button>
-        <% } else { %>
-        <% } %>
-
+      <button id="add-favourite" type="button" class="btn btn-warning">
+        Add This Map to Favourites
+      </button>
+      <% } else { %> <% } %>
     </div>
     <div id="map"></div>
     <script
@@ -57,7 +65,7 @@
     <% if(user){ %>
     <script src="/scripts/point.js"></script>
     <% } else { %>
-      <script src="/scripts/anonpoints.js"></script>
+    <script src="/scripts/anonpoints.js"></script>
     <% } %>
 
     <!-- Bootstrap JS -->
@@ -74,14 +82,12 @@
 <script
   src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-  crossorigin="">
-</script>
-
+  crossorigin=""
+></script>
+<script src="/scripts/deleteHandler.js"></script>
 <script src="/scripts/editAjax.js"></script>
 <script src="/scripts/editHandler.js"></script>
 <script src="/scripts/points_for_map.js"></script>
 
 <script src="/scripts/ostLayer.js"></script>
-
-
 
