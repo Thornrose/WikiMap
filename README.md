@@ -68,11 +68,11 @@ Optional dev package:
 
 
 ## How To Use the App
-![main page]()
+![main page](https://raw.githubusercontent.com/Thornrose/WikiMap/master/Docs/main%20page.png)
 
- From the main page, the layer icon ![layer icon]() can be used to render different tile layers on the map. An unauthenticated user is still able to see a list of available maps via link in the top right corner.
+ From the main page, the layer icon ![layer icon](https://raw.githubusercontent.com/Thornrose/WikiMap/master/Docs/layer%20icon.png) can be used to render different tile layers on the map. An unauthenticated user is still able to see a list of available maps via link in the top right corner.
 
-![available maps]()
+![available maps](https://raw.githubusercontent.com/Thornrose/WikiMap/master/Docs/maps%20list.png)
 
 From the available maps page, manual navigation is required in order to view each map. Users would simply replace `all` in the url with a chosen map number and hit enter/return to navigate to a specific map. 
 
@@ -89,7 +89,8 @@ Creating a new map will render a new instance of a map with no pre-existing poin
 
 Now, when the map is clicked, a form will be displayed to add a new point. **🟡 NOTE ON CURRENT BUG 🟡**: a valid image link must be used in the image url, otherwise later on, selecting that point will crash the server.
 
-![existing point]() ![add point]() 
+![existing point](https://raw.githubusercontent.com/Thornrose/WikiMap/master/Docs/existing%20point.png) 
+![add point](https://raw.githubusercontent.com/Thornrose/WikiMap/master/Docs/add%20point.png) 
 
 Any point on any map can also now be edited or deleted at will!
 
